@@ -1,0 +1,40 @@
+Package: jeksterslabRlib
+Title: Utility Functions to Organize my Personal Library
+Version: 1.0.0
+Authors@R:
+    person(
+        given = "Ivan Jacob Agaloos",
+        family = "Pesigan",
+        role = c("aut", "cre"),
+        email = "i.j.a.pesigan@connect.um.edu.mo",
+        comment = c(ORCID = "0000-0003-4818-8420")
+    )
+Description: Utility functions I use to organize
+    my personal library resources.
+License: MIT + file LICENSE
+URL: https://github.com/jeksterslabds/jeksterslabRlib
+BugReports: https://github.com/jeksterslabds/jeksterslabRlib/issues
+Encoding: UTF-8
+LazyData: true
+Language: en-US
+SystemRequirements:
+    wget,
+    file,
+    calibre
+Depends: R (>= 3.5.0)
+Imports:
+    utils,
+    jeksterslabRutils,
+    rjson,
+    curl,
+    shiny
+Remotes:
+    jeksterslabds/jeksterslabRutils
+Suggests:
+    knitr,
+    rmarkdown,
+    testthat,
+    DT
+VignetteBuilder: knitr
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.0

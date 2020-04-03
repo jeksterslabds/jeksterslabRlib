@@ -1,0 +1,12 @@
+echo "Make sure that your books library is mounted on /media/jeksterslib/books.\n"
+read -r -p "Are you sure? [y/N] " response
+case "$response" in
+    [yY][eE][sS]|[yY]) 
+        Rscript -e "rmarkdown::render('data_springer_books.R')" \
+        && \
+        Rscript -e "rmarkdown::render('metadata_springer_books.R')"
+        ;;
+    *)
+        echo "Mount your books library and rerun the script.\n"
+        ;;
+esac

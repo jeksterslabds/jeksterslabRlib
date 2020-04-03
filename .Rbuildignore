@@ -1,0 +1,14 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^LICENSE\.md$
+^data_raw$
+^\.travis\.yml$
+^\.covrignore$
+^_pkgdown\.yml$
+^docs$
+^README\.Rmd$
+^README\.md$
+^README\.html$
+^jeksterslabRlib\.Rproj$
+^appveyor\.yml$
+Makefile
