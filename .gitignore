@@ -45,4 +45,4 @@ tests/testthat/*.md
 .Renviron
 
 # pkgdown site
-docs
+docs/
