@@ -1,7 +1,7 @@
 jeksterslabRlib
 ================
 Ivan Jacob Agaloos Pesigan
-2020-04-09
+2020-04-10
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
@@ -23,11 +23,11 @@ You can install the released version of `jeksterslabRlib` from
 [GitHub](https://github.com/jeksterslabds/jeksterslabRlib) with:
 
 ``` r
-library(devtools)
-install_github("jeksterslabds/jeksterslabRlib")
+remotes::install_github("jeksterslabds/jeksterslabRlib")
 ```
 
 ## Example
 
-See [GitHub Pages](https://jeksterslabds.github.io/jeksterslabRlib/) for
+See [GitHub
+Pages](https://jeksterslabds.github.io/jeksterslabRlib/index.html) for
 package documentation.
