@@ -13,7 +13,7 @@
 # CRAN
 pkg <- "rprojroot"
 lib.loc <- .libPaths()[1]
-repos <- "https://cran.tsudio.org"
+repos <- "https://cran.rstudio.org"
 dependencies <- TRUE
 type <- "source"
 suppressMessages(
