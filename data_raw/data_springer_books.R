@@ -89,10 +89,10 @@ if (!require("remotes")) {
   )
 }
 pkg <- c(
-    "jeksterslabRpkg",
-    "jeksterslabRutils",
-    "jeksterslabRlib"
-  )
+  "jeksterslabRpkg",
+  "jeksterslabRutils",
+  "jeksterslabRlib"
+)
 foo <- function(pkg) {
   if (!require(pkg, character.only = TRUE)) {
     remotes::install_github(
