@@ -1,5 +1,5 @@
 #' ---
-#' title: "Data springer_books"
+#' title: "Data Springer Books"
 #' author: "Ivan Jacob Agaloos Pesigan"
 #' date: "`r Sys.Date()`"
 #' output:
@@ -7,7 +7,7 @@
 #'     toc: true
 #' ---
 #'
-#' ## Data source
+#' ## Data Source
 #'
 #+ data_source, echo=FALSE
 data_source <- "https://adminportal.springernature.com/metadata/books"
@@ -75,58 +75,48 @@ data_source <- "https://adminportal.springernature.com/metadata/books"
 #'
 #' ## Library
 #'
-#+ library
-# CRAN
-pkg <- "rprojroot"
-lib.loc <- .libPaths()[1]
-repos <- "https://cran.tsudio.org"
-dependencies <- TRUE
-type <- "source"
-suppressMessages(
-  invisible(
-    lapply(
-      X = pkg[!pkg %in% rownames(installed.packages())],
-      FUN = install.packages,
-      lib = lib.loc,
-      ask = FALSE,
-      repos = repos,
-      dependencies = dependencies,
-      type = type
+#+ user_lib
+source("https://raw.githubusercontent.com/jeksterslabds/jeksterslabRterm/master/R/util_txt2file.R")
+source("https://raw.githubusercontent.com/jeksterslabds/jeksterslabRterm/master/R/term_user_lib.R")
+term_user_lib()
+#'
+#+ r_packages
+repos <- "https://cran.rstudio.org"
+if (!require("remotes")) {
+  install.packages(
+    "remotes",
+    repos = repos
+  )
+}
+pkg <- c(
+    "jeksterslabRpkg",
+    "jeksterslabRutils",
+    "jeksterslabRlib"
+  )
+foo <- function(pkg) {
+  if (!require(pkg, character.only = TRUE)) {
+    remotes::install_github(
+      paste0(
+        "jeksterslabds/",
+        pkg
+      )
     )
+  }
+}
+invisible(
+  lapply(
+    X = pkg,
+    FUN = foo
   )
 )
-# User Defined
-usrpkg <- c(
-  "jeksterslabRutils",
-  "jeksterslabRlib"
-)
-suppressMessages(
-  invisible(
-    lapply(
-      X = usrpkg[!usrpkg %in% rownames(installed.packages())],
-      FUN = function(x) paste("Build and install", x)
-    )
-  )
-)
-suppressMessages(
-  invisible(
-    lapply(
-      X = c(pkg, usrpkg),
-      FUN = require,
-      character.only = TRUE
-    )
-  )
-)
+#'
 #' ## Set parameters
 #'
 #+ parameters
 tmp_dir <- tempdir()
-root <- find_root(
-  criterion = "DESCRIPTION",
-  path = "."
-)
+root <- pkg_find_root(pkg_name = "jeksterslabRlib")
 dir <- "/media/jeksterslib/books/springer"
-production <- FALSE
+production <- TRUE
 chkfiles <- FALSE
 par <- TRUE
 ncores <- parallel::detectCores() - 1
