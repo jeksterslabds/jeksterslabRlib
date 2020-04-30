@@ -25,6 +25,7 @@
 #' @importFrom jeksterslabRutils util_wget
 #' @importFrom utils glob2rx
 #' @examples
+#' \dontrun{
 #' # Single DOI
 #' doi <- "10.1007/978-0-387-98141-3"
 #' lib_springer_download(
@@ -46,6 +47,7 @@
 #'   type = "both",
 #'   par = FALSE
 #' )
+#' }
 #' @export
 lib_springer_download <- function(dir,
                                   doi = NULL,
