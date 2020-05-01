@@ -5,6 +5,7 @@
 #' @inheritParams lib_remove_doi_http
 #' @importFrom curl curl
 #' @examples
+#' \dontrun{
 #' doi <- c(
 #'   "10.1002/9780470515075",
 #'   "10.1002/9780470721896"
@@ -13,6 +14,7 @@
 #'   doi = doi,
 #'   par = FALSE
 #' )
+#' }
 #' @export
 lib_wiley_doi2isbn <- function(doi,
                                par = TRUE,
