@@ -21,7 +21,6 @@ doi_04 <- "https://dx.doi.org/10.1016/j.adolescence.2014.04.012"
 doi_05 <- "10.1016/j.adolescence.2014.04.012"
 doi_without_prefix <- "j.adolescence.2014.04.012"
 
-
 #' | Variable             | Description          | Value                  |
 #' |:---------------------|:---------------------|:-----------------------|
 #' | `doi_01`             | DOI 1                | `r doi_01`             |
