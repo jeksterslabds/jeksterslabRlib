@@ -1,0 +1,8 @@
+make[1]: Entering directory '/media/jeksterslab/scripts/r/jeksterslabRlib'
+rm -rf /media/jeksterslab/scripts/r/jeksterslabRlib/docs/*
+rm -rf /media/jeksterslab/scripts/r/jeksterslabRlib/man/*
+rm -rf /media/jeksterslab/scripts/r/jeksterslabRlib/tests/testthat/*.html
+rm -rf /media/jeksterslab/scripts/r/jeksterslabRlib/tests/testthat/*.md
+rm -rf /media/jeksterslab/scripts/r/jeksterslabRlib/vignettes/*.html
+rm -rf /media/jeksterslab/scripts/r/jeksterslabRlib/vignettes/*.md
+git add --all
