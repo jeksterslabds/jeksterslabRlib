@@ -76,7 +76,7 @@ data_source <- "https://adminportal.springernature.com/metadata/books"
 #' ## Library
 #'
 #+ user_lib
-source("https://raw.githubusercontent.com/jeksterslabds/jeksterslabRterm/master/R/util_txt2file.R")
+source("https://raw.githubusercontent.com/jeksterslabds/jeksterslabRutils/master/R/util_txt2file.R")
 source("https://raw.githubusercontent.com/jeksterslabds/jeksterslabRterm/master/R/term_user_lib.R")
 term_user_lib()
 #'
