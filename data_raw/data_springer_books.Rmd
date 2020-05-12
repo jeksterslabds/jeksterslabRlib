@@ -1,0 +1,344 @@
+---
+title: "Vignettes: Data Springer Books"
+author: "Ivan Jacob Agaloos Pesigan"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignettes: Data Springer Books}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+## Data Source
+
+```{r data_source, echo=FALSE}
+data_source <- "https://adminportal.springernature.com/metadata/books"
+```
+
+Data is sourced from
+`r paste0("[Springer Nature Metadata]", "(", data_source, ")")`.
+
+### Languages and eBook Collections
+
+  - English/International
+    - Computer Science without Lecture Notes (starting 1960)
+    - Lecture Notes in Computer Science
+    - Mathematics and Statistics without Lecture Notes (starting 1929)
+    - Lecture Notes in Mathematics
+
+### Subject Classification
+
+#### all
+
+  - Computer Science
+  - Education
+  - Mathematics
+  - Philosophy
+  - Popular Science
+  - Psychology
+  - Social Sciences
+  - Statistics
+
+#### parts
+
+  - Architecture / Design
+    - Design, general
+      - Graphic Design
+  - Business and Management
+    - Management
+      - Project Management
+      - Knowledge Management
+    - Operations Research/Decision Theory
+    - IT in Business
+    - Business Mathematics
+  - Criminology and Criminal Justice
+    - Research Methods in Criminology
+  - Cultural and Media Studies
+    - Photography
+    - Printing and Publishing
+    - Library Science
+  - Economics
+    - History of Economic Thought/Methodology
+    - Economic Theory/Quantitative Economics/Mathematical Methods
+    - Behavioral/Experimental Economics
+  - Life Sciences
+    - Bioinformatics
+    - Behavioral Sciences
+    - Computer Appl. in Life Science
+  - Linguistics
+    - Research Methods in Language and Linguistics
+  - Medicine & Public Health
+    - Health Informatics
+    - Epidemiology
+
+## Set parameters
+
+- If `production = TRUE`, use production data (`SpringerNature_Books*`).
+- If `production = FALSE`, use test data (`Tests_Springer*`).
+
+## Library
+
+```{r user_lib, eval = FALSE}
+source("https://raw.githubusercontent.com/jeksterslabds/jeksterslabRutils/master/R/util_txt2file.R")
+source("https://raw.githubusercontent.com/jeksterslabds/jeksterslabRterm/master/R/term_user_lib.R")
+term_user_lib()
+```
+
+```{r r_packages, eval = FALSE}
+repos <- "https://cran.rstudio.org"
+if (!require("remotes")) {
+  install.packages(
+    "remotes",
+    repos = repos
+  )
+}
+pkg <- c(
+  "jeksterslabRpkg",
+  "jeksterslabRutils",
+  "jeksterslabRlib"
+)
+foo <- function(pkg) {
+  if (!require(pkg, character.only = TRUE)) {
+    remotes::install_github(
+      paste0(
+        "jeksterslabds/",
+        pkg
+      )
+    )
+  }
+}
+invisible(
+  lapply(
+    X = pkg,
+    FUN = foo
+  )
+)
+```
+
+## Set parameters
+
+```{r parameters, eval = FALSE}
+tmp_dir <- tempdir()
+root <- pkg_find_root(pkg_name = "jeksterslabRlib")
+dir <- "/media/jeksterslib/books/springer"
+production <- TRUE
+chkfiles <- FALSE
+par <- TRUE
+ncores <- parallel::detectCores() - 1
+if (production) {
+  pattern <- "^SpringerNature_Books*"
+} else {
+  pattern <- "^Test_Springer*"
+}
+cat(
+  paste0(
+    "Parameters:\n",
+    "\t", "dir = ", "\"", dir, "\"", "\n",
+    "\t", "production = ", production, "\n",
+    "\t", "chkfiles = ", chkfiles, "\n",
+    "\t", "par = ", par, "\n",
+    "\t", "ncores = ", ncores, "\n"
+  )
+)
+```
+
+## Build Springer Books data
+
+```{r data_springer_books, eval = FALSE}
+cat(
+  "Binding Springer Books data from SpringerNature...\n"
+)
+files <- list.files(
+  pattern = glob2rx(
+    paste0(
+      pattern,
+      ".zip"
+    )
+  )
+)
+for (i in seq_along(files)) {
+  unzip(
+    zipfile = files[i],
+    exdir = tmp_dir
+  )
+}
+springer_books <- util_bind(
+  dir = tmp_dir,
+  format = "xlsx",
+  pattern = pattern,
+  fn_column = FALSE,
+  save = FALSE
+)
+springer_books_doi <- unique(
+  springer_books[["DOI URL"]]
+)
+springer_books <- springer_books[!duplicated(springer_books[["DOI URL"]]), ]
+```
+
+## Get available files
+
+
+```{r data_springer_books_available, eval = FALSE}
+cat(
+  paste0(
+    "Checking downloaded files in ",
+    dir,
+    "...",
+    "\n"
+  )
+)
+springer_books_available <- lib_springer_files(dir = dir)
+doi_pdf <- lib_remove_doi_http(
+  springer_books_available[["available_pdf"]][["DOI URL"]]
+)
+doi_epub <- lib_remove_doi_http(
+  springer_books_available[["available_epub"]][["DOI URL"]]
+)
+doi_root_pdf <- lib_remove_doi_prefix(doi = doi_pdf)
+doi_root_epub <- lib_remove_doi_prefix(doi = doi_epub)
+```
+
+## Check PDF files and delete invalid files
+
+
+```{r check_and_delete_pdf, eval = FALSE}
+if (chkfiles) {
+  cat(
+    "Checking and deleting invalid PDF documents...\n"
+  )
+  util_check_file_type(
+    dir = dir,
+    fn = paste0(
+      doi_root_pdf,
+      ".pdf"
+    ),
+    file_type = "PDF document",
+    remove_files = TRUE,
+    par = par,
+    ncores = ncores
+  )
+}
+```
+
+## Check EPUB files and delete invalid files
+
+
+```{r check_and_delete_epub, eval = FALSE}
+if (chkfiles) {
+  cat(
+    "Checking and deleting invalid EPUB documents...\n"
+  )
+  util_check_file_type(
+    dir = dir,
+    fn = paste0(
+      doi_root_epub,
+      ".epub"
+    ),
+    file_type = "EPUB document",
+    remove_files = TRUE,
+    par = par,
+    ncores = ncores
+  )
+}
+```
+
+## Rerun `lib_springer_files` to get available files after deleting invalid files
+
+
+```{r rerun_lib_springer_files, eval = FALSE}
+if (chkfiles) {
+  springer_books_available <- lib_springer_files(
+    dir = dir
+  )
+  doi_pdf <- lib_remove_doi_http(
+    springer_books_available[["available_pdf"]][["DOI URL"]]
+  )
+  doi_epub <- lib_remove_doi_http(
+    springer_books_available[["available_epub"]][["DOI URL"]]
+  )
+}
+cat(
+  paste0(
+    length(doi_pdf),
+    " ",
+    "available PDF files.\n",
+    length(doi_epub),
+    " ",
+    "available EPUB files.\n"
+  )
+)
+```
+
+## Save data
+
+### `extdata`
+
+```{r extdata_01, eval = FALSE}
+springer_books_fn <- file.path(
+  root,
+  "inst",
+  "extdata",
+  "springer_books.Rds"
+)
+cat(
+  paste0(
+    "Saving ",
+    springer_books_fn,
+    "...\n"
+  )
+)
+saveRDS(
+  object = springer_books,
+  file = springer_books_fn,
+  compress = "xz"
+)
+```
+
+```{r extdata_02, eval = FALSE}
+springer_books_available_fn <- file.path(
+  root,
+  "inst",
+  "extdata",
+  "springer_books_available.Rds"
+)
+cat(
+  paste0(
+    "Saving ",
+    springer_books_available_fn,
+    "...\n"
+  )
+)
+saveRDS(
+  object = springer_books_available,
+  file = springer_books_available_fn,
+  compress = "xz"
+)
+```
+
+### `data`
+
+```{r data, eval = FALSE}
+springer_books_doi_fn <- file.path(
+  root,
+  "data",
+  "springer_books_doi.rda"
+)
+cat(
+  paste0(
+    "Saving ",
+    springer_books_doi_fn,
+    "...\n"
+  )
+)
+save(
+  springer_books_doi,
+  file = springer_books_doi_fn,
+  compress = "xz"
+)
+```
+
+## Clean `tempdir`
+
+```{r clean tempdir, eval = FALSE}
+util_clean_tempdir()
+```
