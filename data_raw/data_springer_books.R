@@ -117,13 +117,13 @@ tmp_dir <- tempdir()
 root <- pkg_find_root(pkg_name = "jeksterslabRlib")
 dir <- "/media/jeksterslib/books/springer"
 production <- TRUE
-chkfiles <- FALSE
+chkfiles <- TRUE
 par <- TRUE
 ncores <- parallel::detectCores() - 1
 if (production) {
-  pattern <- "^SpringerNature_Books*"
+  pattern <- "^SpringerNature_Books.*"
 } else {
-  pattern <- "^Test_Springer*"
+  pattern <- "^Test_Springer.*"
 }
 cat(
   paste0(
@@ -143,11 +143,9 @@ cat(
   "Binding Springer Books data from SpringerNature...\n"
 )
 files <- list.files(
-  pattern = glob2rx(
-    paste0(
-      pattern,
-      ".zip"
-    )
+  pattern = paste0(
+    pattern,
+    "\\.zip"
   )
 )
 for (i in seq_along(files)) {
