@@ -4,7 +4,7 @@ PKG=$(PREFIX)/jeksterslabRlib
 .PHONY: all clean rm
 
 all : rm
-	Rscript -e 'jeksterslabRpkg::pkg_build("$(PKG)", git = TRUE, github = TRUE, commit_msg = "Automated build")'
+	Rscript -e 'jeksterslabRpkg::pkg_build("$(PKG)", data = FALSE, git = TRUE, github = TRUE, commit_msg = "Automated build")'
 
 clean : rm
 	git add --all

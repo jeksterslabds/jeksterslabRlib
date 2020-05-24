@@ -10,47 +10,8 @@
 #' ## Library
 #'
 #+ library
-# CRAN
-pkg <- "rprojroot"
-lib.loc <- .libPaths()[1]
-repos <- "https://cran.rstudio.org"
-dependencies <- TRUE
-type <- "source"
-suppressMessages(
-  invisible(
-    lapply(
-      X = pkg[!pkg %in% rownames(installed.packages())],
-      FUN = install.packages,
-      lib = lib.loc,
-      ask = FALSE,
-      repos = repos,
-      dependencies = dependencies,
-      type = type
-    )
-  )
-)
-# User Defined
-usrpkg <- c(
-  "jeksterslabRutils",
-  "jeksterslabRlib"
-)
-suppressMessages(
-  invisible(
-    lapply(
-      X = usrpkg[!usrpkg %in% rownames(installed.packages())],
-      FUN = function(x) paste("Build and install", x)
-    )
-  )
-)
-suppressMessages(
-  invisible(
-    lapply(
-      X = c(pkg, usrpkg),
-      FUN = require,
-      character.only = TRUE
-    )
-  )
-)
+library(jeksterslabRutils)
+library(jeksterslabRlib)
 #'
 #' ## Set parameters
 #'

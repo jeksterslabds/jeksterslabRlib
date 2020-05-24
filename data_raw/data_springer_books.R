@@ -75,40 +75,9 @@ data_source <- "https://adminportal.springernature.com/metadata/books"
 #'
 #' ## Library
 #'
-#+ user_lib
-source("https://raw.githubusercontent.com/jeksterslabds/jeksterslabRutils/master/R/util_txt2file.R")
-source("https://raw.githubusercontent.com/jeksterslabds/jeksterslabRterm/master/R/term_user_lib.R")
-term_user_lib()
-#'
-#+ r_packages
-repos <- "https://cran.rstudio.org"
-if (!require("remotes")) {
-  install.packages(
-    "remotes",
-    repos = repos
-  )
-}
-pkg <- c(
-  "jeksterslabRpkg",
-  "jeksterslabRutils",
-  "jeksterslabRlib"
-)
-foo <- function(pkg) {
-  if (!require(pkg, character.only = TRUE)) {
-    remotes::install_github(
-      paste0(
-        "jeksterslabds/",
-        pkg
-      )
-    )
-  }
-}
-invisible(
-  lapply(
-    X = pkg,
-    FUN = foo
-  )
-)
+#+ library
+library(jeksterslabRutils)
+library(jeksterslabRlib)
 #'
 #' ## Set parameters
 #'
