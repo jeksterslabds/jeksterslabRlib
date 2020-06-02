@@ -14,7 +14,6 @@ jobs:
     os: osx
 cache: packages
 before_install:
-- Rscript -e 'if (!require("tinytex")) install.packages("tinytex"); tinytex::install_tinytex()'
 - Rscript -e 'if (!require("covr")) install.packages("covr")'
 - Rscript -e 'if (!require("pkgdown")) install.packages("pkgdown")'
 after_success:
