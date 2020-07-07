@@ -49,6 +49,3 @@ tests/testthat/*.md
 
 # R Environment Variables
 .Renviron
-
-# pkgdown site
-docs/
