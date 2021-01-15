@@ -1,14 +1,14 @@
-pandoc: 2.9.2.1
-pkgdown: 1.5.1
+pandoc: 2.11.3
+pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
   data_springer_books: data_springer_books.html
-  test_lib_extract_isbn_crossref: tests/test_lib_extract_isbn_crossref.html
-  test_lib_isbn2googlebooksid: tests/test_lib_isbn2googlebooksid.html
-  test_lib_metadata_crossref: tests/test_lib_metadata_crossref.html
-  test_lib_metadata_lc: tests/test_lib_metadata_lc.html
-  test_lib_remove_doi_prefix: tests/test_lib_remove_doi_prefix.html
-last_built: 2020-07-08T19:25Z
+  tests/test_lib_extract_isbn_crossref: test_lib_extract_isbn_crossref.html
+  tests/test_lib_isbn2googlebooksid: test_lib_isbn2googlebooksid.html
+  tests/test_lib_metadata_crossref: test_lib_metadata_crossref.html
+  tests/test_lib_metadata_lc: test_lib_metadata_lc.html
+  tests/test_lib_remove_doi_prefix: test_lib_remove_doi_prefix.html
+last_built: 2021-01-15T06:23Z
 urls:
   reference: https://github.com/jeksterslabds/jeksterslabRlib//reference
   article: https://github.com/jeksterslabds/jeksterslabRlib//articles

@@ -1,5 +1,5 @@
 #' ---
-#' title: "Test lib_isbn2googlebookid"
+#' title: "Test: lib_isbn2googlebookid"
 #' author: "Ivan Jacob Agaloos Pesigan"
 #' date: "`r Sys.Date()`"
 #' output: rmarkdown::html_vignette
@@ -17,8 +17,10 @@ context("Test lib_isbn2googlebookid")
 #' ## Set test parameters
 #'
 #+ parameter_isbn_single
-isbn_single <- "978-0-387-09616-2"
-googlebooksid_single <- "9Aq5k0hZLykC"
+# isbn_single <- "978-0-387-09616-2"
+isbn_single <- "978-0-387-79054-1"
+# googlebooksid_single <- "9Aq5k0hZLykC"
+googlebooksid_single <- "zZFCAAAAQBAJ"
 #'
 #' ### Single ISBN
 #'

@@ -1,5 +1,5 @@
 #' ---
-#' title: "Test lib_metadata_lc"
+#' title: "Test: lib_metadata_lc"
 #' author: "Ivan Jacob Agaloos Pesigan"
 #' date: "`r Sys.Date()`"
 #' output: rmarkdown::html_vignette

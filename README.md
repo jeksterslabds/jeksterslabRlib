@@ -1,10 +1,9 @@
 jeksterslabRlib
 ================
 Ivan Jacob Agaloos Pesigan
-2020-07-09
+2021-01-15
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-
 <!-- badges: start -->
 
 [![Travis build

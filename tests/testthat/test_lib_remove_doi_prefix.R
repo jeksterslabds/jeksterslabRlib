@@ -1,5 +1,5 @@
 #' ---
-#' title: "Test lib_remove_doi_prefix"
+#' title: "Test: lib_remove_doi_prefix"
 #' author: "Ivan Jacob Agaloos Pesigan"
 #' date: "`r Sys.Date()`"
 #' output: rmarkdown::html_vignette

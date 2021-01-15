@@ -39,7 +39,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -57,19 +57,19 @@
       <a href="../articles/data_springer_books.html">Vignettes: Data Springer Books</a>
     </li>
     <li>
-      <a href="../articles/tests/test_lib_extract_isbn_crossref.html">Test lib_extract_isbn_crossref</a>
+      <a href="../articles/tests/test_lib_extract_isbn_crossref.html">Test: lib_extract_isbn_crossref</a>
     </li>
     <li>
-      <a href="../articles/tests/test_lib_isbn2googlebooksid.html">Test lib_isbn2googlebookid</a>
+      <a href="../articles/tests/test_lib_isbn2googlebooksid.html">Test: lib_isbn2googlebookid</a>
     </li>
     <li>
-      <a href="../articles/tests/test_lib_metadata_crossref.html">Test lib_metadata_crossref</a>
+      <a href="../articles/tests/test_lib_metadata_crossref.html">Test: lib_metadata_crossref</a>
     </li>
     <li>
-      <a href="../articles/tests/test_lib_metadata_lc.html">Test lib_metadata_lc</a>
+      <a href="../articles/tests/test_lib_metadata_lc.html">Test: lib_metadata_lc</a>
     </li>
     <li>
-      <a href="../articles/tests/test_lib_remove_doi_prefix.html">Test lib_remove_doi_prefix</a>
+      <a href="../articles/tests/test_lib_remove_doi_prefix.html">Test: lib_remove_doi_prefix</a>
     </li>
   </ul>
 </li>
@@ -77,7 +77,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/jeksterslabds/jeksterslabRlib/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -91,13 +91,13 @@
 
       
 
-      </header><script src="data_springer_books_files/header-attrs-2.3/header-attrs.js"></script><script src="data_springer_books_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+      </header><script src="data_springer_books_files/header-attrs-2.6/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Vignettes: Data Springer Books</h1>
                         <h4 class="author">Ivan Jacob Agaloos Pesigan</h4>
             
-            <h4 class="date">2020-07-09</h4>
+            <h4 class="date">2021-01-15</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/jeksterslabds/jeksterslabRlib/blob/master/vignettes/data_springer_books.Rmd"><code>vignettes/data_springer_books.Rmd</code></a></small>
       <div class="hidden name"><code>data_springer_books.Rmd</code></div>
@@ -219,181 +219,189 @@
 <div id="library" class="section level2">
 <h2 class="hasAnchor">
 <a href="#library" class="anchor"></a>Library</h2>
-<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/source.html">source</a></span>(<span class="st">"https://raw.githubusercontent.com/jeksterslabds/jeksterslabRutils/master/R/util_txt2file.R"</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/source.html">source</a></span>(<span class="st">"https://raw.githubusercontent.com/jeksterslabds/jeksterslabRterm/master/R/term_user_lib.R"</span>)
-<span class="fu">term_user_lib</span>()</pre></body></html></div>
-<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="no">repos</span> <span class="kw">&lt;-</span> <span class="st">"https://cran.rstudio.org"</span>
-<span class="kw">if</span> (!<span class="fu"><a href="https://rdrr.io/r/base/library.html">require</a></span>(<span class="st">"remotes"</span>)) {
-  <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="st">"https://raw.githubusercontent.com/jeksterslabds/jeksterslabRutils/master/R/util_txt2file.R"</span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="st">"https://raw.githubusercontent.com/jeksterslabds/jeksterslabRterm/master/R/term_user_lib.R"</span><span class="op">)</span>
+<span class="fu">term_user_lib</span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">repos</span> <span class="op">&lt;-</span> <span class="st">"https://cran.rstudio.org"</span>
+<span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="st"><a href="https://remotes.r-lib.org">"remotes"</a></span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
+  <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span>
     <span class="st">"remotes"</span>,
-    <span class="kw">repos</span> <span class="kw">=</span> <span class="no">repos</span>
-  )
-}
-<span class="no">pkg</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(
+    repos <span class="op">=</span> <span class="va">repos</span>
+  <span class="op">)</span>
+<span class="op">}</span>
+<span class="va">pkg</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>
   <span class="st">"jeksterslabRpkg"</span>,
   <span class="st">"jeksterslabRutils"</span>,
   <span class="st">"jeksterslabRlib"</span>
-)
-<span class="no">foo</span> <span class="kw">&lt;-</span> <span class="kw">function</span>(<span class="no">pkg</span>) {
-  <span class="kw">if</span> (!<span class="fu"><a href="https://rdrr.io/r/base/library.html">require</a></span>(<span class="no">pkg</span>, <span class="kw">character.only</span> <span class="kw">=</span> <span class="fl">TRUE</span>)) {
-    <span class="kw pkg">remotes</span><span class="kw ns">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(
-      <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span>(
+<span class="op">)</span>
+<span class="va">foo</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">pkg</span><span class="op">)</span> <span class="op">{</span>
+  <span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="va">pkg</span>, character.only <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
+    <span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span>
+      <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span>
         <span class="st">"jeksterslabds/"</span>,
-        <span class="no">pkg</span>
-      )
-    )
-  }
-}
-<span class="fu"><a href="https://rdrr.io/r/base/invisible.html">invisible</a></span>(
-  <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span>(
-    <span class="kw">X</span> <span class="kw">=</span> <span class="no">pkg</span>,
-    <span class="kw">FUN</span> <span class="kw">=</span> <span class="no">foo</span>
-  )
-)</pre></body></html></div>
+        <span class="va">pkg</span>
+      <span class="op">)</span>
+    <span class="op">)</span>
+  <span class="op">}</span>
+<span class="op">}</span>
+<span class="fu"><a href="https://rdrr.io/r/base/invisible.html">invisible</a></span><span class="op">(</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span>
+    X <span class="op">=</span> <span class="va">pkg</span>,
+    FUN <span class="op">=</span> <span class="va">foo</span>
+  <span class="op">)</span>
+<span class="op">)</span></code></pre></div>
 </div>
 <div id="set-parameters-1" class="section level2">
 <h2 class="hasAnchor">
 <a href="#set-parameters-1" class="anchor"></a>Set parameters</h2>
-<div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="no">tmp_dir</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span>()
-<span class="no">root</span> <span class="kw">&lt;-</span> <span class="fu">pkg_find_root</span>(<span class="kw">pkg_name</span> <span class="kw">=</span> <span class="st">"jeksterslabRlib"</span>)
-<span class="no">dir</span> <span class="kw">&lt;-</span> <span class="st">"/media/jeksterslib/books/springer"</span>
-<span class="no">production</span> <span class="kw">&lt;-</span> <span class="fl">TRUE</span>
-<span class="no">chkfiles</span> <span class="kw">&lt;-</span> <span class="fl">FALSE</span>
-<span class="no">par</span> <span class="kw">&lt;-</span> <span class="fl">TRUE</span>
-<span class="no">ncores</span> <span class="kw">&lt;-</span> <span class="kw pkg">parallel</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/r/parallel/detectCores.html">detectCores</a></span>() - <span class="fl">1</span>
-<span class="kw">if</span> (<span class="no">production</span>) {
-  <span class="no">pattern</span> <span class="kw">&lt;-</span> <span class="st">"^SpringerNature_Books*"</span>
-} <span class="kw">else</span> {
-  <span class="no">pattern</span> <span class="kw">&lt;-</span> <span class="st">"^Test_Springer*"</span>
-}
-<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span>(
-  <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span>(
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">tmp_dir</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span><span class="op">(</span><span class="op">)</span>
+<span class="va">root</span> <span class="op">&lt;-</span> <span class="fu">pkg_find_root</span><span class="op">(</span>pkg_name <span class="op">=</span> <span class="st">"jeksterslabRlib"</span><span class="op">)</span>
+<span class="va">dir</span> <span class="op">&lt;-</span> <span class="st">"/media/jeksterslib/books/springer"</span>
+<span class="va">production</span> <span class="op">&lt;-</span> <span class="cn">TRUE</span>
+<span class="va">chkfiles</span> <span class="op">&lt;-</span> <span class="cn">FALSE</span>
+<span class="va">par</span> <span class="op">&lt;-</span> <span class="cn">TRUE</span>
+<span class="va">ncores</span> <span class="op">&lt;-</span> <span class="fu">parallel</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/parallel/detectCores.html">detectCores</a></span><span class="op">(</span><span class="op">)</span> <span class="op">-</span> <span class="fl">1</span>
+<span class="kw">if</span> <span class="op">(</span><span class="va">production</span><span class="op">)</span> <span class="op">{</span>
+  <span class="va">pattern</span> <span class="op">&lt;-</span> <span class="st">"^SpringerNature_Books*"</span>
+<span class="op">}</span> <span class="kw">else</span> <span class="op">{</span>
+  <span class="va">pattern</span> <span class="op">&lt;-</span> <span class="st">"^Test_Springer*"</span>
+<span class="op">}</span>
+<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span>
     <span class="st">"Parameters:\n"</span>,
-    <span class="st">"\t"</span>, <span class="st">"dir = "</span>, <span class="st">"\""</span>, <span class="no">dir</span>, <span class="st">"\""</span>, <span class="st">"\n"</span>,
-    <span class="st">"\t"</span>, <span class="st">"production = "</span>, <span class="no">production</span>, <span class="st">"\n"</span>,
-    <span class="st">"\t"</span>, <span class="st">"chkfiles = "</span>, <span class="no">chkfiles</span>, <span class="st">"\n"</span>,
-    <span class="st">"\t"</span>, <span class="st">"par = "</span>, <span class="no">par</span>, <span class="st">"\n"</span>,
-    <span class="st">"\t"</span>, <span class="st">"ncores = "</span>, <span class="no">ncores</span>, <span class="st">"\n"</span>
-  )
-)</pre></body></html></div>
+    <span class="st">"\t"</span>, <span class="st">"dir = "</span>, <span class="st">"\""</span>, <span class="va">dir</span>, <span class="st">"\""</span>, <span class="st">"\n"</span>,
+    <span class="st">"\t"</span>, <span class="st">"production = "</span>, <span class="va">production</span>, <span class="st">"\n"</span>,
+    <span class="st">"\t"</span>, <span class="st">"chkfiles = "</span>, <span class="va">chkfiles</span>, <span class="st">"\n"</span>,
+    <span class="st">"\t"</span>, <span class="st">"par = "</span>, <span class="va">par</span>, <span class="st">"\n"</span>,
+    <span class="st">"\t"</span>, <span class="st">"ncores = "</span>, <span class="va">ncores</span>, <span class="st">"\n"</span>
+  <span class="op">)</span>
+<span class="op">)</span></code></pre></div>
 </div>
 <div id="build-springer-books-data" class="section level2">
 <h2 class="hasAnchor">
 <a href="#build-springer-books-data" class="anchor"></a>Build Springer Books data</h2>
-<div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span>(
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span>
   <span class="st">"Binding Springer Books data from SpringerNature...\n"</span>
-)
-<span class="no">files</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.files.html">list.files</a></span>(
-  <span class="kw">pattern</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/utils/glob2rx.html">glob2rx</a></span>(
-    <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span>(
-      <span class="no">pattern</span>,
+<span class="op">)</span>
+<span class="va">files</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.files.html">list.files</a></span><span class="op">(</span>
+  pattern <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/utils/glob2rx.html">glob2rx</a></span><span class="op">(</span>
+    <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span>
+      <span class="va">pattern</span>,
       <span class="st">".zip"</span>
-    )
-  )
-)
-<span class="kw">for</span> (<span class="no">i</span> <span class="kw">in</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq_along</a></span>(<span class="no">files</span>)) {
-  <span class="fu"><a href="https://rdrr.io/r/utils/unzip.html">unzip</a></span>(
-    <span class="kw">zipfile</span> <span class="kw">=</span> <span class="no">files</span>[<span class="no">i</span>],
-    <span class="kw">exdir</span> <span class="kw">=</span> <span class="no">tmp_dir</span>
-  )
-}
-<span class="no">springer_books</span> <span class="kw">&lt;-</span> <span class="fu">util_bind</span>(
-  <span class="kw">dir</span> <span class="kw">=</span> <span class="no">tmp_dir</span>,
-  <span class="kw">format</span> <span class="kw">=</span> <span class="st">"xlsx"</span>,
-  <span class="kw">pattern</span> <span class="kw">=</span> <span class="no">pattern</span>,
-  <span class="kw">fn_column</span> <span class="kw">=</span> <span class="fl">FALSE</span>,
-  <span class="kw">save</span> <span class="kw">=</span> <span class="fl">FALSE</span>
-)
-<span class="no">springer_books_doi</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span>(
-  <span class="no">springer_books</span><span class="kw">[[</span><span class="st">"DOI URL"</span>]]
-)
-<span class="no">springer_books</span> <span class="kw">&lt;-</span> <span class="no">springer_books</span>[!<span class="fu"><a href="https://rdrr.io/r/base/duplicated.html">duplicated</a></span>(<span class="no">springer_books</span><span class="kw">[[</span><span class="st">"DOI URL"</span>]]), ]</pre></body></html></div>
+    <span class="op">)</span>
+  <span class="op">)</span>
+<span class="op">)</span>
+<span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq_along</a></span><span class="op">(</span><span class="va">files</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
+  <span class="fu"><a href="https://rdrr.io/r/utils/unzip.html">unzip</a></span><span class="op">(</span>
+    zipfile <span class="op">=</span> <span class="va">files</span><span class="op">[</span><span class="va">i</span><span class="op">]</span>,
+    exdir <span class="op">=</span> <span class="va">tmp_dir</span>
+  <span class="op">)</span>
+<span class="op">}</span>
+<span class="va">springer_books</span> <span class="op">&lt;-</span> <span class="fu">util_bind</span><span class="op">(</span>
+  dir <span class="op">=</span> <span class="va">tmp_dir</span>,
+  format <span class="op">=</span> <span class="st">"xlsx"</span>,
+  pattern <span class="op">=</span> <span class="va">pattern</span>,
+  fn_column <span class="op">=</span> <span class="cn">FALSE</span>,
+  save <span class="op">=</span> <span class="cn">FALSE</span>
+<span class="op">)</span>
+<span class="va">springer_books_doi</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span>
+  <span class="va">springer_books</span><span class="op">[[</span><span class="st">"DOI URL"</span><span class="op">]</span><span class="op">]</span>
+<span class="op">)</span>
+<span class="va">springer_books</span> <span class="op">&lt;-</span> <span class="va">springer_books</span><span class="op">[</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/duplicated.html">duplicated</a></span><span class="op">(</span><span class="va">springer_books</span><span class="op">[[</span><span class="st">"DOI URL"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span>, <span class="op">]</span></code></pre></div>
 </div>
 <div id="get-available-files" class="section level2">
 <h2 class="hasAnchor">
 <a href="#get-available-files" class="anchor"></a>Get available files</h2>
-<div class="sourceCode" id="cb5"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span>(
-  <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span>(
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span>
     <span class="st">"Checking downloaded files in "</span>,
-    <span class="no">dir</span>,
+    <span class="va">dir</span>,
     <span class="st">"..."</span>,
     <span class="st">"\n"</span>
-  )
-)
-<span class="no">springer_books_available</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/lib_springer_files.html">lib_springer_files</a></span>(<span class="kw">dir</span> <span class="kw">=</span> <span class="no">dir</span>)
-<span class="no">doi_pdf</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/lib_remove_doi_http.html">lib_remove_doi_http</a></span>(
-  <span class="no">springer_books_available</span><span class="kw">[[</span><span class="st">"available_pdf"</span>]]<span class="kw">[[</span><span class="st">"DOI URL"</span>]]
-)
-<span class="no">doi_epub</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/lib_remove_doi_http.html">lib_remove_doi_http</a></span>(
-  <span class="no">springer_books_available</span><span class="kw">[[</span><span class="st">"available_epub"</span>]]<span class="kw">[[</span><span class="st">"DOI URL"</span>]]
-)
-<span class="no">doi_root_pdf</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/lib_remove_doi_prefix.html">lib_remove_doi_prefix</a></span>(<span class="kw">doi</span> <span class="kw">=</span> <span class="no">doi_pdf</span>)
-<span class="no">doi_root_epub</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/lib_remove_doi_prefix.html">lib_remove_doi_prefix</a></span>(<span class="kw">doi</span> <span class="kw">=</span> <span class="no">doi_epub</span>)</pre></body></html></div>
+  <span class="op">)</span>
+<span class="op">)</span>
+<span class="va">springer_books_available</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/lib_springer_files.html">lib_springer_files</a></span><span class="op">(</span>dir <span class="op">=</span> <span class="va">dir</span><span class="op">)</span>
+<span class="va">doi_pdf</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/lib_remove_doi_http.html">lib_remove_doi_http</a></span><span class="op">(</span>
+  <span class="va">springer_books_available</span><span class="op">[[</span><span class="st">"available_pdf"</span><span class="op">]</span><span class="op">]</span><span class="op">[[</span><span class="st">"DOI URL"</span><span class="op">]</span><span class="op">]</span>
+<span class="op">)</span>
+<span class="va">doi_epub</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/lib_remove_doi_http.html">lib_remove_doi_http</a></span><span class="op">(</span>
+  <span class="va">springer_books_available</span><span class="op">[[</span><span class="st">"available_epub"</span><span class="op">]</span><span class="op">]</span><span class="op">[[</span><span class="st">"DOI URL"</span><span class="op">]</span><span class="op">]</span>
+<span class="op">)</span>
+<span class="va">doi_root_pdf</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/lib_remove_doi_prefix.html">lib_remove_doi_prefix</a></span><span class="op">(</span>doi <span class="op">=</span> <span class="va">doi_pdf</span><span class="op">)</span>
+<span class="va">doi_root_epub</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/lib_remove_doi_prefix.html">lib_remove_doi_prefix</a></span><span class="op">(</span>doi <span class="op">=</span> <span class="va">doi_epub</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="check-pdf-files-and-delete-invalid-files" class="section level2">
 <h2 class="hasAnchor">
 <a href="#check-pdf-files-and-delete-invalid-files" class="anchor"></a>Check PDF files and delete invalid files</h2>
-<div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="kw">if</span> (<span class="no">chkfiles</span>) {
-  <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span>(
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw">if</span> <span class="op">(</span><span class="va">chkfiles</span><span class="op">)</span> <span class="op">{</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span>
     <span class="st">"Checking and deleting invalid PDF documents...\n"</span>
-  )
-  <span class="fu">util_check_file_type</span>(
-    <span class="kw">dir</span> <span class="kw">=</span> <span class="no">dir</span>,
-    <span class="kw">fn</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span>(
-      <span class="no">doi_root_pdf</span>,
+  <span class="op">)</span>
+  <span class="fu">util_check_file_type</span><span class="op">(</span>
+    dir <span class="op">=</span> <span class="va">dir</span>,
+    fn <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span>
+      <span class="va">doi_root_pdf</span>,
       <span class="st">".pdf"</span>
-    ),
-    <span class="kw">file_type</span> <span class="kw">=</span> <span class="st">"PDF document"</span>,
-    <span class="kw">remove_files</span> <span class="kw">=</span> <span class="fl">TRUE</span>,
-    <span class="kw">par</span> <span class="kw">=</span> <span class="no">par</span>,
-    <span class="kw">ncores</span> <span class="kw">=</span> <span class="no">ncores</span>
-  )
-}</pre></body></html></div>
+    <span class="op">)</span>,
+    file_type <span class="op">=</span> <span class="st">"PDF document"</span>,
+    remove_files <span class="op">=</span> <span class="cn">TRUE</span>,
+    par <span class="op">=</span> <span class="va">par</span>,
+    ncores <span class="op">=</span> <span class="va">ncores</span>
+  <span class="op">)</span>
+<span class="op">}</span></code></pre></div>
 </div>
 <div id="check-epub-files-and-delete-invalid-files" class="section level2">
 <h2 class="hasAnchor">
 <a href="#check-epub-files-and-delete-invalid-files" class="anchor"></a>Check EPUB files and delete invalid files</h2>
-<div class="sourceCode" id="cb7"><html><body><pre class="r"><span class="kw">if</span> (<span class="no">chkfiles</span>) {
-  <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span>(
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw">if</span> <span class="op">(</span><span class="va">chkfiles</span><span class="op">)</span> <span class="op">{</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span>
     <span class="st">"Checking and deleting invalid EPUB documents...\n"</span>
-  )
-  <span class="fu">util_check_file_type</span>(
-    <span class="kw">dir</span> <span class="kw">=</span> <span class="no">dir</span>,
-    <span class="kw">fn</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span>(
-      <span class="no">doi_root_epub</span>,
+  <span class="op">)</span>
+  <span class="fu">util_check_file_type</span><span class="op">(</span>
+    dir <span class="op">=</span> <span class="va">dir</span>,
+    fn <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span>
+      <span class="va">doi_root_epub</span>,
       <span class="st">".epub"</span>
-    ),
-    <span class="kw">file_type</span> <span class="kw">=</span> <span class="st">"EPUB document"</span>,
-    <span class="kw">remove_files</span> <span class="kw">=</span> <span class="fl">TRUE</span>,
-    <span class="kw">par</span> <span class="kw">=</span> <span class="no">par</span>,
-    <span class="kw">ncores</span> <span class="kw">=</span> <span class="no">ncores</span>
-  )
-}</pre></body></html></div>
+    <span class="op">)</span>,
+    file_type <span class="op">=</span> <span class="st">"EPUB document"</span>,
+    remove_files <span class="op">=</span> <span class="cn">TRUE</span>,
+    par <span class="op">=</span> <span class="va">par</span>,
+    ncores <span class="op">=</span> <span class="va">ncores</span>
+  <span class="op">)</span>
+<span class="op">}</span></code></pre></div>
 </div>
 <div id="rerun-lib_springer_files-to-get-available-files-after-deleting-invalid-files" class="section level2">
 <h2 class="hasAnchor">
 <a href="#rerun-lib_springer_files-to-get-available-files-after-deleting-invalid-files" class="anchor"></a>Rerun <code>lib_springer_files</code> to get available files after deleting invalid files</h2>
-<div class="sourceCode" id="cb8"><html><body><pre class="r"><span class="kw">if</span> (<span class="no">chkfiles</span>) {
-  <span class="no">springer_books_available</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/lib_springer_files.html">lib_springer_files</a></span>(
-    <span class="kw">dir</span> <span class="kw">=</span> <span class="no">dir</span>
-  )
-  <span class="no">doi_pdf</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/lib_remove_doi_http.html">lib_remove_doi_http</a></span>(
-    <span class="no">springer_books_available</span><span class="kw">[[</span><span class="st">"available_pdf"</span>]]<span class="kw">[[</span><span class="st">"DOI URL"</span>]]
-  )
-  <span class="no">doi_epub</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/lib_remove_doi_http.html">lib_remove_doi_http</a></span>(
-    <span class="no">springer_books_available</span><span class="kw">[[</span><span class="st">"available_epub"</span>]]<span class="kw">[[</span><span class="st">"DOI URL"</span>]]
-  )
-}
-<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span>(
-  <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span>(
-    <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span>(<span class="no">doi_pdf</span>),
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw">if</span> <span class="op">(</span><span class="va">chkfiles</span><span class="op">)</span> <span class="op">{</span>
+  <span class="va">springer_books_available</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/lib_springer_files.html">lib_springer_files</a></span><span class="op">(</span>
+    dir <span class="op">=</span> <span class="va">dir</span>
+  <span class="op">)</span>
+  <span class="va">doi_pdf</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/lib_remove_doi_http.html">lib_remove_doi_http</a></span><span class="op">(</span>
+    <span class="va">springer_books_available</span><span class="op">[[</span><span class="st">"available_pdf"</span><span class="op">]</span><span class="op">]</span><span class="op">[[</span><span class="st">"DOI URL"</span><span class="op">]</span><span class="op">]</span>
+  <span class="op">)</span>
+  <span class="va">doi_epub</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/lib_remove_doi_http.html">lib_remove_doi_http</a></span><span class="op">(</span>
+    <span class="va">springer_books_available</span><span class="op">[[</span><span class="st">"available_epub"</span><span class="op">]</span><span class="op">]</span><span class="op">[[</span><span class="st">"DOI URL"</span><span class="op">]</span><span class="op">]</span>
+  <span class="op">)</span>
+<span class="op">}</span>
+<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span>
+    <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">doi_pdf</span><span class="op">)</span>,
     <span class="st">" "</span>,
     <span class="st">"available PDF files.\n"</span>,
-    <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span>(<span class="no">doi_epub</span>),
+    <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">doi_epub</span><span class="op">)</span>,
     <span class="st">" "</span>,
     <span class="st">"available EPUB files.\n"</span>
-  )
-)</pre></body></html></div>
+  <span class="op">)</span>
+<span class="op">)</span></code></pre></div>
 </div>
 <div id="save-data" class="section level2">
 <h2 class="hasAnchor">
@@ -402,71 +410,75 @@
 <h3 class="hasAnchor">
 <a href="#extdata" class="anchor"></a><code>extdata</code>
 </h3>
-<div class="sourceCode" id="cb9"><html><body><pre class="r"><span class="no">springer_books_fn</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span>(
-  <span class="no">root</span>,
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">springer_books_fn</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span>
+  <span class="va">root</span>,
   <span class="st">"inst"</span>,
   <span class="st">"extdata"</span>,
   <span class="st">"springer_books.Rds"</span>
-)
-<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span>(
-  <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span>(
+<span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span>
     <span class="st">"Saving "</span>,
-    <span class="no">springer_books_fn</span>,
+    <span class="va">springer_books_fn</span>,
     <span class="st">"...\n"</span>
-  )
-)
-<span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span>(
-  <span class="kw">object</span> <span class="kw">=</span> <span class="no">springer_books</span>,
-  <span class="kw">file</span> <span class="kw">=</span> <span class="no">springer_books_fn</span>,
-  <span class="kw">compress</span> <span class="kw">=</span> <span class="st">"xz"</span>
-)</pre></body></html></div>
-<div class="sourceCode" id="cb10"><html><body><pre class="r"><span class="no">springer_books_available_fn</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span>(
-  <span class="no">root</span>,
+  <span class="op">)</span>
+<span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span>
+  object <span class="op">=</span> <span class="va">springer_books</span>,
+  file <span class="op">=</span> <span class="va">springer_books_fn</span>,
+  compress <span class="op">=</span> <span class="st">"xz"</span>
+<span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">springer_books_available_fn</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span>
+  <span class="va">root</span>,
   <span class="st">"inst"</span>,
   <span class="st">"extdata"</span>,
   <span class="st">"springer_books_available.Rds"</span>
-)
-<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span>(
-  <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span>(
+<span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span>
     <span class="st">"Saving "</span>,
-    <span class="no">springer_books_available_fn</span>,
+    <span class="va">springer_books_available_fn</span>,
     <span class="st">"...\n"</span>
-  )
-)
-<span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span>(
-  <span class="kw">object</span> <span class="kw">=</span> <span class="no">springer_books_available</span>,
-  <span class="kw">file</span> <span class="kw">=</span> <span class="no">springer_books_available_fn</span>,
-  <span class="kw">compress</span> <span class="kw">=</span> <span class="st">"xz"</span>
-)</pre></body></html></div>
+  <span class="op">)</span>
+<span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span>
+  object <span class="op">=</span> <span class="va">springer_books_available</span>,
+  file <span class="op">=</span> <span class="va">springer_books_available_fn</span>,
+  compress <span class="op">=</span> <span class="st">"xz"</span>
+<span class="op">)</span></code></pre></div>
 </div>
 <div id="data" class="section level3">
 <h3 class="hasAnchor">
 <a href="#data" class="anchor"></a><code>data</code>
 </h3>
-<div class="sourceCode" id="cb11"><html><body><pre class="r"><span class="no">springer_books_doi_fn</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span>(
-  <span class="no">root</span>,
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">springer_books_doi_fn</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span>
+  <span class="va">root</span>,
   <span class="st">"data"</span>,
   <span class="st">"springer_books_doi.rda"</span>
-)
-<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span>(
-  <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span>(
+<span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span>
     <span class="st">"Saving "</span>,
-    <span class="no">springer_books_doi_fn</span>,
+    <span class="va">springer_books_doi_fn</span>,
     <span class="st">"...\n"</span>
-  )
-)
-<span class="fu"><a href="https://rdrr.io/r/base/save.html">save</a></span>(
-  <span class="no">springer_books_doi</span>,
-  <span class="kw">file</span> <span class="kw">=</span> <span class="no">springer_books_doi_fn</span>,
-  <span class="kw">compress</span> <span class="kw">=</span> <span class="st">"xz"</span>
-)</pre></body></html></div>
+  <span class="op">)</span>
+<span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/save.html">save</a></span><span class="op">(</span>
+  <span class="va">springer_books_doi</span>,
+  file <span class="op">=</span> <span class="va">springer_books_doi_fn</span>,
+  compress <span class="op">=</span> <span class="st">"xz"</span>
+<span class="op">)</span></code></pre></div>
 </div>
 </div>
 <div id="clean-tempdir" class="section level2">
 <h2 class="hasAnchor">
 <a href="#clean-tempdir" class="anchor"></a>Clean <code>tempdir</code>
 </h2>
-<div class="sourceCode" id="cb12"><html><body><pre class="r"><span class="fu">util_clean_tempdir</span>()</pre></body></html></div>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">util_clean_tempdir</span><span class="op">(</span><span class="op">)</span></code></pre></div>
 </div>
   </div>
 
@@ -485,7 +497,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

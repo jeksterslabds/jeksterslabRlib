@@ -77,6 +77,7 @@ data_source <- "https://adminportal.springernature.com/metadata/books"
 #'
 #+ library
 library(jeksterslabRutils)
+library(jeksterslabRpkg)
 library(jeksterslabRlib)
 #'
 #' ## Set parameters

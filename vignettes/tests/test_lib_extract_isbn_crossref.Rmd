@@ -1,5 +1,5 @@
 ---
-title: "Test lib_extract_isbn_crossref"
+title: "Test: lib_extract_isbn_crossref"
 author: "Ivan Jacob Agaloos Pesigan"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette

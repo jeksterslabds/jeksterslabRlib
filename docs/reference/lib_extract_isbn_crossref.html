@@ -80,7 +80,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -98,19 +98,19 @@
       <a href="../articles/data_springer_books.html">Vignettes: Data Springer Books</a>
     </li>
     <li>
-      <a href="../articles/tests/test_lib_extract_isbn_crossref.html">Test lib_extract_isbn_crossref</a>
+      <a href="../articles/tests/test_lib_extract_isbn_crossref.html">Test: lib_extract_isbn_crossref</a>
     </li>
     <li>
-      <a href="../articles/tests/test_lib_isbn2googlebooksid.html">Test lib_isbn2googlebookid</a>
+      <a href="../articles/tests/test_lib_isbn2googlebooksid.html">Test: lib_isbn2googlebookid</a>
     </li>
     <li>
-      <a href="../articles/tests/test_lib_metadata_crossref.html">Test lib_metadata_crossref</a>
+      <a href="../articles/tests/test_lib_metadata_crossref.html">Test: lib_metadata_crossref</a>
     </li>
     <li>
-      <a href="../articles/tests/test_lib_metadata_lc.html">Test lib_metadata_lc</a>
+      <a href="../articles/tests/test_lib_metadata_lc.html">Test: lib_metadata_lc</a>
     </li>
     <li>
-      <a href="../articles/tests/test_lib_remove_doi_prefix.html">Test lib_remove_doi_prefix</a>
+      <a href="../articles/tests/test_lib_remove_doi_prefix.html">Test: lib_remove_doi_prefix</a>
     </li>
   </ul>
 </li>
@@ -118,7 +118,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/jeksterslabds/jeksterslabRlib/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -144,13 +144,13 @@
     <p>Extract ISBN from the result of lib_metadata_crossref.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>lib_extract_isbn_crossref</span>(
-  <span class='kw'>fromdoi</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>doi</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>cf</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>par</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>ncores</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
-)</pre>
+    <pre class="usage"><span class='fu'>lib_extract_isbn_crossref</span><span class='op'>(</span>
+  fromdoi <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  doi <span class='op'>=</span> <span class='cn'>NULL</span>,
+  cf <span class='op'>=</span> <span class='cn'>NULL</span>,
+  par <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  ncores <span class='op'>=</span> <span class='cn'>NULL</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -187,48 +187,55 @@ If unspecified, defaults to <code>detectCores() - 1</code>.</p></td>
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Ivan Jacob Agaloos Pesigan</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Single DOI</span>
-<span class='no'>doi</span> <span class='kw'>&lt;-</span> <span class='st'>"10.1007/978-0-387-98141-3"</span>
-<span class='no'>cf</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='lib_metadata_crossref.html'>lib_metadata_crossref</a></span>(
-  <span class='kw'>doi</span> <span class='kw'>=</span> <span class='no'>doi</span>,
-  <span class='kw'>par</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
-)
-<span class='fu'>lib_extract_isbn_crossref</span>(
-  <span class='kw'>fromdoi</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>doi</span> <span class='kw'>=</span> <span class='no'>doi</span>,
-  <span class='kw'>par</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
-)</div><div class='output co'>#&gt;      doi                         isbn           
+<span class='va'>doi</span> <span class='op'>&lt;-</span> <span class='st'>"10.1007/978-0-387-98141-3"</span>
+<span class='va'>cf</span> <span class='op'>&lt;-</span> <span class='fu'><a href='lib_metadata_crossref.html'>lib_metadata_crossref</a></span><span class='op'>(</span>
+  doi <span class='op'>=</span> <span class='va'>doi</span>,
+  par <span class='op'>=</span> <span class='cn'>FALSE</span>
+<span class='op'>)</span>
+<span class='fu'>lib_extract_isbn_crossref</span><span class='op'>(</span>
+  fromdoi <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  doi <span class='op'>=</span> <span class='va'>doi</span>,
+  par <span class='op'>=</span> <span class='cn'>FALSE</span>
+<span class='op'>)</span>
+</div><div class='output co'>#&gt;      doi                         isbn           
 #&gt; [1,] "10.1007/978-0-387-98141-3" "9780387981406"
-#&gt; [2,] "10.1007/978-0-387-98141-3" "9780387981413"</div><div class='input'><span class='fu'>lib_extract_isbn_crossref</span>(
-  <span class='kw'>fromdoi</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>cf</span> <span class='kw'>=</span> <span class='no'>cf</span>,
-  <span class='kw'>par</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
-)</div><div class='output co'>#&gt;      doi                         isbn           
+#&gt; [2,] "10.1007/978-0-387-98141-3" "9780387981413"</div><div class='input'><span class='fu'>lib_extract_isbn_crossref</span><span class='op'>(</span>
+  fromdoi <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  cf <span class='op'>=</span> <span class='va'>cf</span>,
+  par <span class='op'>=</span> <span class='cn'>FALSE</span>
+<span class='op'>)</span>
+</div><div class='output co'>#&gt;      doi                         isbn           
 #&gt; [1,] "10.1007/978-0-387-98141-3" "9780387981406"
 #&gt; [2,] "10.1007/978-0-387-98141-3" "9780387981413"</div><div class='input'><span class='co'># Vector of DOIs</span>
-<span class='no'>doi</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(
+<span class='va'>doi</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>
   <span class='st'>"https://doi.org/10.1007/978-0-387-71762-3"</span>,
   <span class='st'>"10.1007/978-0-387-98141-3"</span>
-)
-<span class='no'>cf</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='lib_metadata_crossref.html'>lib_metadata_crossref</a></span>(
-  <span class='kw'>doi</span> <span class='kw'>=</span> <span class='no'>doi</span>,
-  <span class='kw'>par</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
-)
-<span class='fu'>lib_extract_isbn_crossref</span>(
-  <span class='kw'>fromdoi</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>doi</span> <span class='kw'>=</span> <span class='no'>doi</span>,
-  <span class='kw'>par</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
-)</div><div class='output co'>#&gt;      doi                         isbn           
+<span class='op'>)</span>
+<span class='va'>cf</span> <span class='op'>&lt;-</span> <span class='fu'><a href='lib_metadata_crossref.html'>lib_metadata_crossref</a></span><span class='op'>(</span>
+  doi <span class='op'>=</span> <span class='va'>doi</span>,
+  par <span class='op'>=</span> <span class='cn'>FALSE</span>
+<span class='op'>)</span>
+<span class='fu'>lib_extract_isbn_crossref</span><span class='op'>(</span>
+  fromdoi <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  doi <span class='op'>=</span> <span class='va'>doi</span>,
+  par <span class='op'>=</span> <span class='cn'>FALSE</span>
+<span class='op'>)</span>
+</div><div class='output co'>#&gt;      doi                         isbn           
 #&gt; [1,] "10.1007/978-0-387-71762-3" "9780387717616"
 #&gt; [2,] "10.1007/978-0-387-71762-3" "9780387717623"
 #&gt; [3,] "10.1007/978-0-387-98141-3" "9780387981406"
-#&gt; [4,] "10.1007/978-0-387-98141-3" "9780387981413"</div><div class='input'><span class='fu'>lib_extract_isbn_crossref</span>(
-  <span class='kw'>fromdoi</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>cf</span> <span class='kw'>=</span> <span class='no'>cf</span>,
-  <span class='kw'>par</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
-)</div><div class='output co'>#&gt;      doi                         isbn           
+#&gt; [4,] "10.1007/978-0-387-98141-3" "9780387981413"</div><div class='input'><span class='fu'>lib_extract_isbn_crossref</span><span class='op'>(</span>
+  fromdoi <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  cf <span class='op'>=</span> <span class='va'>cf</span>,
+  par <span class='op'>=</span> <span class='cn'>FALSE</span>
+<span class='op'>)</span>
+</div><div class='output co'>#&gt;      doi                         isbn           
 #&gt; [1,] "10.1007/978-0-387-71762-3" "9780387717616"
 #&gt; [2,] "10.1007/978-0-387-71762-3" "9780387717623"
 #&gt; [3,] "10.1007/978-0-387-98141-3" "9780387981406"
@@ -248,7 +255,7 @@ If unspecified, defaults to <code>detectCores() - 1</code>.</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
